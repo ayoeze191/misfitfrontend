@@ -92,9 +92,9 @@ export const add_to_cart = (id) => (dispatch, getState) => {
         type: CARTMESSAGE,
         payload: "ADDED TO CART"
       })
-      setTimeout(dispatch({
+      setTimeout(() => dispatch({
         type: CLEARCARTMESSAGE
-      }), 10000)
+      }), 5000)
     })
     .catch((res) => console.log(res))
 };
@@ -209,6 +209,10 @@ export const visitor_remove_from_cart =
       type: CARTMESSAGE,
       payload: "REMOVE FROM CART"
     })
+    setTimeout(() => dispatch({
+      type: CLEARCARTMESSAGE
+    }), 5000)
+
   };
 
 
