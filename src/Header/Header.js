@@ -72,7 +72,7 @@ const Header = (props) => {
           onClick={() => props.ChangeSideBarMode()}
           className="relative md:hidden  h-full w-6 sm:w-10 flex items-center"
         >
-          <div className="absolute top-0 text-lg bg-red-500 rounded-full  px-2 text-white">{cartNumber>0?cartNumber:0}</div>
+          <div className="absolute bottom-3 left-3 md:text-lg bg-red-500 rounded-full  px-2 text-sm text-white font-bold">{cartNumber>0?cartNumber:0}</div>
           <img src={iconMenu} className="w-full " />
         </div>
       </div>

@@ -3,6 +3,7 @@ import Padlock from './../assets/materials/Padlock.svg'
 import Vector from './../assets/materials/Vector.jpg'
 import s from './../assets/materials/s.png'
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const SideBar = () => {
     const cartNumber = useSelector(
@@ -13,7 +14,7 @@ const SideBar = () => {
         <div className=" h-full w-4/6 bg-white flex flex-col p-5 gap-7 rounded-r-xl rounded-br-3xl fixed z-50">
             <div className="flex items-center justify-between gap-4">
             <div className="flex ">
-                <div className="absolute bg-red-600 rounded-full w-5">{cartNumber} </div>
+               <Link to='/cart'> <div className="absolute bg-red-600 rounded-full px-2 text-white font-bold">{cartNumber} </div></Link>
                 <div className=""><img src={Padlock} /></div>
             </div>
             <div className="relative flex-1  md:hidden">

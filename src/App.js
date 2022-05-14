@@ -56,14 +56,15 @@ function App() {
 
   return (
     <div className={classes.join(' ')}>
-      {showSideBar && <SideBar /> }
-      {showOverlay && <OverLay clearscreen = {clearScreen}/> }
+     
       {/* {<Cart clearscreen = {clearScreen}/> } */}
 
       {/* <Cart /> */}
         
         
         <Router>
+        {showSideBar && <SideBar /> }
+        {showOverlay && <OverLay clearscreen = {clearScreen}/> }
         <Header ChangeSideBarMode={changeSideBarMode} />
         <Messages />
       <Routes>

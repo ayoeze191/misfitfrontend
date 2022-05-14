@@ -12,8 +12,8 @@ const Products = (props) => {
   
   return (
     <div className="px-7 flex flex-col gap-14 ">
-      <div className="flex justify-between items-center h-16  border border-border_color border-x-0">
-        <div className="w-1/5 justify-start  text-left">
+      <div className="flex justify-between items-center  border border-border_color border-x-0 text-xs py-2 sm:text-sm md:text-base">
+        <div className=" justify-start  text-left">
           Ready-To-Wear
           <span className="font-light h-full my-auto">(3000+ products)</span>
         </div>

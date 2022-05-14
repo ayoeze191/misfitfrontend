@@ -27,7 +27,7 @@ const Cart = (props) => {
 
   return (
     <div className="max-w-5xl mx-auto flex flex-col gap-6 mt-2">
-      <div className="shadow-md shadow-stone-500 p-3">
+      <div className="shadow-md shadow-stone-500 p-3 px-8 md:px-3">
         <div className=" pl-0 pb-7 pt-0 flex border-b items-start justify-start">
           <button className="bg-white text-black shadow-md shadow-stone-500 p-3">
             <Link to="/products">Continue Shopping</Link>
@@ -43,7 +43,7 @@ const Cart = (props) => {
             </p>
           </div>
           <div className="flex-1 flex justify-end">
-            <Link to="/checkout">
+            <Link to="/checkout" className="mt-3">
               <button className="bg-discover text-white p-3">CheckOut</button>
             </Link>
           </div>

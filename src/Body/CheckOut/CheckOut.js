@@ -71,17 +71,17 @@ const CheckOut = () => {
 
 
   return (
-    <div className="flex max-w-5xl mx-auto justify-between gap-4 mt-4 bg-white flex-col sm:flex-row">
+    <div className="flex max-w-5xl mx-auto justify-between gap-4 mt-4 bg-white flex-col md:flex-row">
       <form className="flex flex-col gap-5 shadow-lg shadow-stone-500 p-5 h-fit" onSubmit={(e)  => makePaymentHandler(e)}>
 
         <div className="flex flex-col gap-5">
         {!whether_authenticated&&
-          <div className="flex  justify-between gap-5 border-b pb-3 ">
-            <div>
-              <input type="text" placeholder="Name" className="border p-2" name = "name" onChange={(e) => onChangeHandler(e, null)}/>
+          <div className="flex justify-between gap-5 border-b pb-3 flex-col md:flex-row w-full">
+            <div className="w-full">
+              <input type="text" placeholder="Name" className="border p-2 w-full" name = "name" onChange={(e) => onChangeHandler(e, null)}/>
             </div>
             <div>
-              <input type="email" placeholder="Email" className="border p-2" name = "email" onChange={(e) => onChangeHandler(e, null)}/>
+              <input type="email" placeholder="Email" className="border p-2 w-full" name = "email" onChange={(e) => onChangeHandler(e, null)}/>
             </div>
           </div>
 }
