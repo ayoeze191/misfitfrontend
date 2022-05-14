@@ -5,7 +5,7 @@ import malik from './../assets/materials/malik.svg'
 
 const LandingPage = () => {
     return (
-        <div className="mb-12 flex flex-col gap-5 mt-5">
+        <div className="mb-12 flex flex-col gap-5 mt-5 w-full items-center">
             <div className = "h-3/4">
             <img src={malik} className="w-full h-full" />
             </div>
