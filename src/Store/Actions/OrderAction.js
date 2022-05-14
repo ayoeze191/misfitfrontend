@@ -214,6 +214,3 @@ export const visitor_remove_from_cart =
     }), 5000)
 
   };
-
-
-

@@ -24,10 +24,11 @@ const Header = (props) => {
   }, [whether_authenticated]);
 
   return (
-    <div className=" px-7 flex justify-between  border border-border_color border-x-0 h-16 ">
-      <div className="font-lato text-3xl text-left text flex items-center sm:text-4xl md:text-5xl">
+    <div className=" px-7 flex justify-between  border border-border_color border-x-0 h-16 items-center">
+     <Link to='/'> <div className="font-lato text-3xl text-left text flex items-center sm:text-4xl md:text-5xl">
         Misfit
       </div>
+      </Link>
       <ul className="hidden  md:flex gap-10 justify-between items-center font-lato_light font-normal">
         <li className="">Descover Bespoke</li>
         <li className="">Men</li>
