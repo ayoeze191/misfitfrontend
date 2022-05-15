@@ -30,10 +30,12 @@ export const get_product_details = (id) => (dispatch) => {
 
 export const product_search_action = (payload) => (dispatch) => {
     dispatch({'type': PRODUCTS_LOADING})
-    axios.get(`misfitbackend.herokuapp.com/productSearch?search=${payload}`)
+    axios.get(`https://misfitbackend.herokuapp.com/productSearch?search=${payload}`)
     .then((res) => {
         dispatch(GET_PRODUCTS(res.data))
+        console.log('searching')
     })
+
 }
 
 
