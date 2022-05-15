@@ -18,15 +18,13 @@ const Header = (props) => {
   const cartNumber = useSelector(
     (state) => state.OrderReducer.total_number_of_products
   );
-  const searchHandler = () => {
+  const searchHandler = (searchValue) => {
     dispatch(product_search_action(searchValue))
   }
 
   const onChangeHandler = (e) => {
     setSearchValue(e.target.value)
-   
-    searchHandler()
-
+    console.log()
   }
   
   const whether_authenticated = useSelector(
@@ -38,7 +36,7 @@ const Header = (props) => {
   }, [whether_authenticated]);
 
   useEffect(() => {
-    searchHandler()
+    searchHandler(searchValue)
   })
 
   return (
