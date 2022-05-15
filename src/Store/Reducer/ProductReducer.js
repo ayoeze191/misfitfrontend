@@ -1,4 +1,4 @@
-import { GET_ALL_PRODUCTS, GET_PRODUCT_DETAILS } from "../ActionTypes/ActionTypes";
+import { GET_ALL_PRODUCTS, GET_PRODUCT_DETAILS, PRODUCTS_LOADING, SEARCH_FEATURES } from "../ActionTypes/ActionTypes";
 
 const initial_state = {
     allProducts: [],
@@ -10,6 +10,7 @@ const initial_state = {
         "stock_price": "",
         "productimage": []
     },
+    productLoading: false
 }
 
 const ProductReducer = (state = initial_state, action) => {
@@ -17,14 +18,20 @@ const ProductReducer = (state = initial_state, action) => {
         case GET_ALL_PRODUCTS:
             return {
                 ...state,
-                allProducts: action.payload
+                allProducts: action.payload,
+                productLoading: false
             }
         case GET_PRODUCT_DETAILS:
             return {
                 ...state,
-                productDetails: action.payload
+                productDetails: action.payload,
+                productLoading: false
             }
-            
+        case PRODUCTS_LOADING:
+            return{
+                ...state,
+                productLoading: true
+            }
         
     default:
             return state;

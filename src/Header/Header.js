@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Padlock from "./../assets/materials/Padlock.svg";
 import Vector from "./../assets/materials/Vector.jpg";
 import s from "./../assets/materials/s.png";
@@ -6,22 +6,40 @@ import iconMenu from "./../assets/materials/iconMenu.svg";
 import searchBottom from "./../assets/materials/searchBottom.svg";
 import { get_orders } from "../Store/Actions/OrderAction";
 import { Link, Navigate, useNavigate} from "react-router-dom";
+import { product_search_action } from "../Store/Actions/ProductAction";
+
 
 import { useDispatch, useSelector } from "react-redux";
 
-const Header = (props) => {
 
-  
+const Header = (props) => {
+  const [searchValue, setSearchValue] = useState('')
+  const dispatch = useDispatch();
   const cartNumber = useSelector(
     (state) => state.OrderReducer.total_number_of_products
   );
+  const searchHandler = () => {
+    dispatch(product_search_action(searchValue))
+  }
+
+  const onChangeHandler = (e) => {
+    setSearchValue(e.target.value)
+   
+    searchHandler()
+
+  }
+  
   const whether_authenticated = useSelector(
     (state) => state.AuthReducer.authenticated
   );
-  const dispatch = useDispatch();
+
   useEffect(() => {
         dispatch(get_orders());
   }, [whether_authenticated]);
+
+  useEffect(() => {
+    searchHandler()
+  })
 
   return (
     <div className=" px-7 flex justify-between  border border-border_color border-x-0 h-16 items-center">
@@ -42,12 +60,15 @@ const Header = (props) => {
             placeholder="Search Product"
             type="text"
             className="font-lato_italic font-extralight border border-border_color border-x-0 border-t-0 md:w-56"
+            onChange={(e) => onChangeHandler(e)}
+            value = {searchValue}
           />
           <img
             src={s}
             width="30"
             height="30"
             className="absolute right-0 top-0 min-h-fit"
+            onClick={searchHandler}
           />
           {/* <img src={searchBottom} /> */}
         </div>
