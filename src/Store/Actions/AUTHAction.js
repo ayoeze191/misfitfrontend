@@ -81,7 +81,7 @@ export const load_user = () => (dispatch, getState) => {
 export const UserLogout = () => (dispatch, getState) => {
     dispatch({'type': LOGOUT})
     const refresh = localStorage.getItem('refresh') 
-    axios.post('http://127.0.0.1:8000/auth/logout', tokenConfig(getState), data = refresh)
+    axios.post('https://misfitbackend.herokuapp.com/auth/logout', tokenConfig(getState), data = refresh)
     .then((res) => {
         console.log(res.data)
     })
