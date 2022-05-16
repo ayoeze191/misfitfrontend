@@ -37,7 +37,7 @@ const Header = (props) => {
 
   useEffect(() => {
     searchHandler(searchValue)
-  })
+  }, [searchValue])
 
   return (
     <div className=" px-7 flex justify-between  border border-border_color border-x-0 h-16 items-center">

@@ -9,12 +9,12 @@ import {
   CARTMESSAGE,
   CLEARCARTMESSAGE,
 } from "../ActionTypes/ActionTypes";
+import { checkAuthTimeout } from "./AUTHAction";
 
 export const get_orders = () => (dispatch, getState) => {
+  dispatch(checkAuthTimeout())
   if (getState().AuthReducer.authenticated) {
-    
-    console.log("authenticated")
-    const url = "https://misfitbackend.herokuapp.com/order/UserCart";
+    const url = "misfitbackend.herokuapp.com/order/UserCart";
     axios
       .get(url, tokenConfig(getState))
       .then((res) => {
@@ -60,7 +60,7 @@ export const get_orders = () => (dispatch, getState) => {
 };
 
 export const tokenConfig = (getState) => {
-  const token = getState().AuthReducer.token;
+  const token = getState().AuthReducer.access_token;
   const config = {
     headers: {
       "Content-Type": "application/json",
@@ -75,9 +75,11 @@ export const tokenConfig = (getState) => {
 };
 
 export const add_to_cart = (id) => (dispatch, getState) => {
+  dispatch(checkAuthTimeout())
   axios
-    .get(`https://misfitbackend.herokuapp.com/order/AddorDelete/${id}`, tokenConfig(getState))
+    .get(`misfitbackend.herokuapp.com/order/AddorDelete/${id}`, tokenConfig(getState))
     .then((res) => {
+      console.log(res)
       const payload = {
         total_amount_of_all_goods_bought:
           res.data.total_amount_of_all_goods_bought,
@@ -96,13 +98,15 @@ export const add_to_cart = (id) => (dispatch, getState) => {
         type: CLEARCARTMESSAGE
       }), 5000)
     })
+    
     .catch((res) => console.log(res))
 };
 
 export const remove_from_cart = (id) => (dispatch, getState) => {
+  dispatch(checkAuthTimeout())
   axios
     .delete(
-      `https://misfitbackend.herokuapp.com/order/AddorDelete/${id}`,
+      `misfitbackend.herokuapp.com/order/AddorDelete/${id}`,
       tokenConfig(getState)
     )
     .then((res) => {

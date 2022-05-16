@@ -4,7 +4,8 @@ const initial_state = {
     user: '',
     loading: false,
     authenticated : false,
-    token: localStorage.getItem('access')
+    access_token: localStorage.getItem('access'),
+    refresh_token: localStorage.getItem('refresh')
 }
 export const AuthReducer = (state = initial_state, action) => {
     switch(action.type){
@@ -13,15 +14,17 @@ export const AuthReducer = (state = initial_state, action) => {
             {
             ...state,
             loading: true
-            }
+            } 
         )
         case AUTH_SUCCESS:
             const newtoken = localStorage.getItem('access')
+            const newrefresh = localStorage.getItem('refresh')
             return(
                 {
                     ...state,
                     loading: false,
-                    token: newtoken,
+                    access_token: newtoken,
+                    refresh_token: newrefresh,
                     authenticated: true,
                     user: action.payload
                 }
@@ -30,6 +33,7 @@ export const AuthReducer = (state = initial_state, action) => {
         case AUTH_FAIL:
         case LOGOUT:
             localStorage.removeItem('access')
+            localStorage.removeItem('refresh')
             return(
                 {
                     ...state,
