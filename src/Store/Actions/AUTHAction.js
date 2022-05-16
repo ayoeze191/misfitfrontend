@@ -11,10 +11,10 @@ export const auth = (payload, islogin) => (dispatch) => {
     })
     let url = '';
     if(islogin){
-        url = 'http://127.0.0.1:8000/auth/login'
+        url = 'https://misfitbackend.herokuapp.com/auth/login'
     }
     else{
-        url = 'http://127.0.0.1:8000/auth/register'
+        url = 'https://misfitbackend.herokuapp.com/auth/register'
     }
     axios.post(url, payload)
     .then((res) => {
@@ -38,7 +38,7 @@ export const checkAuthTimeout = () => (dispatch) => {
     const exp = new Date(localStorage.getItem('exp') * 1000 )
     const presentDate = new Date()
     if(presentDate >= exp) {
-        axios.post('http://127.0.0.1:8000/auth/get_new_token', localStorage.getItem('exp'))
+        axios.post('https://misfitbackend.herokuapp.com/auth/get_new_token', localStorage.getItem('exp'))
         .then((res) => {
             const payload = {
                 'access': res.data.access,
