@@ -62,7 +62,7 @@ export const checkAuthTimeout = () => (dispatch) => {
 
 export const load_user = () => (dispatch, getState) => {
     dispatch({'type': AUTH_LOADING})
-    axios.get('http://127.0.0.1:8000/auth/get_user', tokenConfig(getState))
+    axios.get('https://misfitbackend.herokuapp.com/auth/get_user', tokenConfig(getState))
     .then((res) => {
         dispatch({
             type: AUTH_SUCCESS,
