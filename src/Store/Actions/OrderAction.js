@@ -12,9 +12,10 @@ import {
 import { checkAuthTimeout } from "./AUTHAction";
 
 export const get_orders = () => (dispatch, getState) => {
-  dispatch(checkAuthTimeout())
+ 
   if (getState().AuthReducer.authenticated) {
-    const url = "misfitbackend.herokuapp.com/order/UserCart";
+    dispatch(checkAuthTimeout())
+    const url = "https://misfitbackend.herokuapp.com/order/UserCart";
     axios
       .get(url, tokenConfig(getState))
       .then((res) => {
@@ -77,7 +78,7 @@ export const tokenConfig = (getState) => {
 export const add_to_cart = (id) => (dispatch, getState) => {
   dispatch(checkAuthTimeout())
   axios
-    .get(`misfitbackend.herokuapp.com/order/AddorDelete/${id}`, tokenConfig(getState))
+    .get(`https://misfitbackend.herokuapp.com/order/AddorDelete/${id}`, tokenConfig(getState))
     .then((res) => {
       console.log(res)
       const payload = {
@@ -106,7 +107,7 @@ export const remove_from_cart = (id) => (dispatch, getState) => {
   dispatch(checkAuthTimeout())
   axios
     .delete(
-      `misfitbackend.herokuapp.com/order/AddorDelete/${id}`,
+      `https://misfitbackend.herokuapp.com/order/AddorDelete/${id}`,
       tokenConfig(getState)
     )
     .then((res) => {

@@ -1,9 +1,11 @@
-import { CARTMESSAGE, CLEARCARTMESSAGE } from "../ActionTypes/ActionTypes"
+import { CARTMESSAGE, CLEARCARTMESSAGE, AUTHMESSAGE } from "../ActionTypes/ActionTypes"
 
 
 const initial_state = {
-    cartMessage : ""   
+    cartMessage : "",
+    authmessage: ''   
 }
+
 
 
 export const MessageReducer = (state = initial_state, action) => {
@@ -15,8 +17,18 @@ export const MessageReducer = (state = initial_state, action) => {
             }
         case CLEARCARTMESSAGE:
             return{
-                cartMessage: ""
+                cartMessage: "",
+                authmessage: ''
             }
+
+        case AUTHMESSAGE:
+            return{
+                ...state,
+                authmessage: action.payload
+            }
+        
+
+
         
         default:
             return state

@@ -4,10 +4,11 @@ import Product from "./Product";
 import { connect, useSelector } from "react-redux";
 import { get_all_products } from "../../Store/Actions/ProductAction";
 import Spinner from "../../UI/Spinner/Spinner";
-
+import axios from "./../../axios"
+import withErrorHandler from "../../withErrorHandler";
 const Products = (props) => {
   const isLoading = useSelector((state) => state.ProductReducer.productLoading)
-  useEffect(() => {
+  useEffect(() => { 
     props.get_all_products();
   }, []);
 
@@ -45,10 +46,11 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
+
 const mapStateToProps = (state) => {
   return {
     all_products: state.ProductReducer.allProducts,
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Products);
+export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler(Products, axios));

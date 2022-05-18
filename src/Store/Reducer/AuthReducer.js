@@ -34,6 +34,7 @@ export const AuthReducer = (state = initial_state, action) => {
         case LOGOUT:
             localStorage.removeItem('access')
             localStorage.removeItem('refresh')
+            localStorage.removeItem('exp')
             return(
                 {
                     ...state,
