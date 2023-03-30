@@ -72,7 +72,7 @@ function App() {
         {showOverlay && <OverLay clearscreen = {clearScreen}/> }
         <Header ChangeSideBarMode={changeSideBarMode} />
         {/* <Messages /> */}
-        <CustomToastContainer> <ToastContainer position='top-center'/></CustomToastContainer>
+        <CustomToastContainer> <ToastContainer position='top-center' theme='dark' type="success" toastStyle={{width: "100%", position:"absolute"}}/></CustomToastContainer>
       <Routes>
         <Route path = "/" element = {<LandingPage />} />
         

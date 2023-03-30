@@ -89,7 +89,7 @@ export const add_to_cart = (id) => (dispatch, getState) => {
         total_number_of_products: res.data.total_number_of_products,
         orders: res.data.orders,
       };
-      toast("Added To Cart")
+      toast.success("Added To Cart")
       dispatch({
         type: ADD_TO_CART,
         payload,
@@ -129,7 +129,7 @@ export const remove_from_cart = (id) => (dispatch, getState) => {
       type: CARTMESSAGE,
       payload: "REMOVED FROM CART"
     })
-    toast("REMOVED FROM CART")
+    toast.info("REMOVED FROM CART")
 };
 
 export const visitor_add_to_cart =(Product_id,product_stock_price,productname,productimage,product_category) =>(dispatch) => {
