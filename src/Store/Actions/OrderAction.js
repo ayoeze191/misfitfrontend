@@ -100,7 +100,7 @@ export const add_to_cart = (id) => (dispatch, getState) => {
       }), 5000)
     })
     
-    .catch((res) => //(res))
+    .catch((res) => console.log(res))
 };
 
 export const remove_from_cart = (id) => (dispatch, getState) => {
