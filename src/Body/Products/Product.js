@@ -16,6 +16,7 @@ const Product = (props) => {
     navigate(tos);
   };
 
+
   const addTocart = (id, price, name, image, category) => {
     const d_image = `${image}`
     if(whether_authenticated){

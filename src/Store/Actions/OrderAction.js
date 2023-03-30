@@ -10,6 +10,7 @@ import {
   CLEARCARTMESSAGE,
 } from "../ActionTypes/ActionTypes";
 import { checkAuthTimeout } from "./AUTHAction";
+import { toast } from "react-toastify";
 
 export const get_orders = () => (dispatch, getState) => {
  
@@ -76,6 +77,7 @@ export const tokenConfig = (getState) => {
 };
 
 export const add_to_cart = (id) => (dispatch, getState) => {
+
   dispatch(checkAuthTimeout())
   axios
     .get(`https://misfit.onrender.com/order/AddorDelete/${id}`, tokenConfig(getState))
@@ -87,6 +89,7 @@ export const add_to_cart = (id) => (dispatch, getState) => {
         total_number_of_products: res.data.total_number_of_products,
         orders: res.data.orders,
       };
+      toast("Added To Cart")
       dispatch({
         type: ADD_TO_CART,
         payload,

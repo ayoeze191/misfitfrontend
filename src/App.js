@@ -17,10 +17,14 @@ import { useDispatch } from 'react-redux';
 import CheckOut from './Body/CheckOut/CheckOut';
 import Logout from './auth/Logout/Logout';
 import Messages from './UI/Messages';
-
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useSelector } from 'react-redux';
+import CustomToastContainer from './CustomToastContainer';
 
 function App() {
+  // const message = useSelector((state) => state.MessageReducer.cartMessage)
+
   useEffect(() => {
     Store.dispatch(load_user());
    
@@ -28,7 +32,6 @@ function App() {
 
   const [showSideBar, setShowSideBar] = useState(false);
   const [showOverlay, setShowOverLay] = useState(false);
- 
   
 
   
@@ -47,11 +50,13 @@ function App() {
     setShowSideBar(false)
   }
 
+  const message = useSelector((state) => state.MessageReducer.cartMessage)
+
+
 
 
   const classes = ['relative min-h-screen w-full']
   const overflow = 'overflow-hidden'
-
  
 
   return (
@@ -66,9 +71,9 @@ function App() {
         {showSideBar && <SideBar /> }
         {showOverlay && <OverLay clearscreen = {clearScreen}/> }
         <Header ChangeSideBarMode={changeSideBarMode} />
-        <Messages />
+        {/* <Messages /> */}
+        <CustomToastContainer> <ToastContainer position='top-center'/></CustomToastContainer>
       <Routes>
-       
         <Route path = "/" element = {<LandingPage />} />
         
         <Route path = "/Products" element = {<Products/>} />
