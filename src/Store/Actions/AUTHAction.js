@@ -11,10 +11,10 @@ export const auth = (payload, islogin) => (dispatch) => {
     })
     let url = '';
     if(islogin){
-        url = 'https://misfitbackend.herokuapp.com/auth/login'
+        url = 'https://misfit.onrender.com/auth/login'
     }
     else{
-        url = 'https://misfitbackend.herokuapp.com/auth/register'
+        url = 'https://misfit.onrender.com/auth/register'
     }
     axios.post(url, payload)
     .then((res) => {
@@ -105,7 +105,7 @@ export const checkAuthTimeout = () => (dispatch, getState) => {
     const presentDate = new Date()
     console.log("now",presentDate)
     if(presentDate >= exp) {
-        axios.post('https://misfitbackend.herokuapp.com/auth/get_new_token', data, tokenConfig(getState))
+        axios.post('https://misfit.onrender.com/auth/get_new_token', data, tokenConfig(getState))
         .then((res) => {
             console.log(res)
             const payload = {
@@ -133,7 +133,7 @@ export const checkAuthTimeout = () => (dispatch, getState) => {
 
 export const load_user = () => (dispatch, getState) => {
     dispatch({'type': AUTH_LOADING})
-    axios.get('https://misfitbackend.herokuapp.com/auth/get_user', tokenConfig(getState))
+    axios.get('https://misfit.onrender.com/auth/get_user', tokenConfig(getState))
     .then((res) => {
         dispatch({
             type: AUTH_SUCCESS,
@@ -152,7 +152,7 @@ export const load_user = () => (dispatch, getState) => {
 export const UserLogout = () => (dispatch, getState) => {
     dispatch({'type': LOGOUT})
     const refresh = localStorage.getItem('refresh') 
-    axios.post('https://misfitbackend.herokuapp.com/auth/logout', tokenConfig(getState), refresh)
+    axios.post('https://misfit.onrender.com/auth/logout', tokenConfig(getState), refresh)
     .then((res) => {
         console.log(res.data)
         dispatch({

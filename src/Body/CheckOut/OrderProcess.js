@@ -9,7 +9,7 @@ export const processOrder = (payload) => (dispatch) => {
             shipping_data: payload,
             // order: Store.getState().OrderReducer.authenticated
         }
-        axios.post('https://misfitbackend.herokuapp.com/order/processOrder', data, getToken())
+        axios.post('https://misfit.onrender.com/order/processOrder', data, getToken())
         .then((res) => {
         console.log(res.data)
     })
@@ -20,7 +20,7 @@ export const processOrder = (payload) => (dispatch) => {
             shipping_data: payload,
             order: Store.getState().OrderReducer.orders
         }
-        axios.post('https://misfitbackend.herokuapp.com/order/processOrder', data)
+        axios.post('https://misfit.onrender.com/order/processOrder', data)
         .then((res) => {
             const cart = []
             document.cookie = 'cart=' + JSON.stringify(cart) + ";domain=;path=/"

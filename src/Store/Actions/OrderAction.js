@@ -15,7 +15,7 @@ export const get_orders = () => (dispatch, getState) => {
  
   if (getState().AuthReducer.authenticated) {
     dispatch(checkAuthTimeout())
-    const url = "https://misfitbackend.herokuapp.com/order/UserCart";
+    const url = "https://misfit.onrender.com/order/UserCart";
     axios
       .get(url, tokenConfig(getState))
       .then((res) => {
@@ -78,9 +78,9 @@ export const tokenConfig = (getState) => {
 export const add_to_cart = (id) => (dispatch, getState) => {
   dispatch(checkAuthTimeout())
   axios
-    .get(`https://misfitbackend.herokuapp.com/order/AddorDelete/${id}`, tokenConfig(getState))
+    .get(`https://misfit.onrender.com/order/AddorDelete/${id}`, tokenConfig(getState))
     .then((res) => {
-      console.log(res)
+      //(res)
       const payload = {
         total_amount_of_all_goods_bought:
           res.data.total_amount_of_all_goods_bought,
@@ -100,14 +100,14 @@ export const add_to_cart = (id) => (dispatch, getState) => {
       }), 5000)
     })
     
-    .catch((res) => console.log(res))
+    .catch((res) => //(res))
 };
 
 export const remove_from_cart = (id) => (dispatch, getState) => {
   dispatch(checkAuthTimeout())
   axios
     .delete(
-      `https://misfitbackend.herokuapp.com/order/AddorDelete/${id}`,
+      `https://misfit.onrender.com/order/AddorDelete/${id}`,
       tokenConfig(getState)
     )
     .then((res) => {
@@ -189,7 +189,7 @@ export const visitor_remove_from_cart =
       product_category
     );
     var cart = JSON.parse(getCookie("cart"));
-    console.log(cart)
+    //(cart)
     let sumQuantity = 0;
     let sum_of_amount = 0;
 

@@ -3,7 +3,7 @@ import React from "react";
 const CheckOutSummary = (props) => {
   let image = props.image
   if(props.authenticated){
-    image = `https://misfitbackend.herokuapp.com/${props.image}`
+    image = `https://misfit.onrender.com/${props.image}`
   }
   return (
     <div className="flex justify-between p-3 border-t items-center gap-4">
