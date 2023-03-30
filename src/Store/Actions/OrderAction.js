@@ -129,6 +129,7 @@ export const remove_from_cart = (id) => (dispatch, getState) => {
       type: CARTMESSAGE,
       payload: "REMOVED FROM CART"
     })
+    toast("REMOVED FROM CART")
 };
 
 export const visitor_add_to_cart =(Product_id,product_stock_price,productname,productimage,product_category) =>(dispatch) => {
