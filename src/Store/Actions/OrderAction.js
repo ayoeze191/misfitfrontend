@@ -167,7 +167,7 @@ export const visitor_add_to_cart =(Product_id,product_stock_price,productname,pr
       type: CARTMESSAGE,
       payload: "ADDED TO CART"
     })
-
+    toast.info("ADDED TO CART")
     setTimeout(() => dispatch({
       type: CLEARCARTMESSAGE
     }), 5000)
@@ -218,8 +218,8 @@ export const visitor_remove_from_cart =
       type: CARTMESSAGE,
       payload: "REMOVE FROM CART"
     })
+    toast.info("REMOVED FROM CART")
     setTimeout(() => dispatch({
       type: CLEARCARTMESSAGE
     }), 5000)
-
   };
