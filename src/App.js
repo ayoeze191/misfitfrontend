@@ -74,15 +74,14 @@ function App() {
         {/* <Messages /> */}
         <CustomToastContainer> <ToastContainer position='top-center' theme='dark' type="success" toastStyle={{width: "100%", position:"absolute"}}/></CustomToastContainer>
       <Routes>
-        <Route path = "/" element = {<LandingPage />} />
+        {/* <Route path = "/" element = {<LandingPage />} /> */}
         
-        <Route path = "/Products" element = {<Products/>} />
-        <Route path='/Products/:Product_id' element = {<ProductDetail/>}/>
+        <Route path = "/" element = {<Products/>} />
+        <Route path='/:Product_id' element = {<ProductDetail/>}/>
         <Route path = '/auth' element = {<Auth/>} />
         <Route path = '/cart' element = {<Cart />} />
         <Route path = '/checkout' element = {<CheckOut />} />
         <Route path = '/logout' element = {<Logout />} />
-
       </Routes>
         </Router>
     </div>

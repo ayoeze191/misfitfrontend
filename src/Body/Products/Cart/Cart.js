@@ -30,7 +30,7 @@ const Cart = (props) => {
       <div className="shadow-md shadow-stone-500 p-3 px-8 md:px-3">
         <div className=" pl-0 pb-7 pt-0 flex border-b items-start justify-start">
           <button className="bg-white text-black shadow-md shadow-stone-500 p-3">
-            <Link to="/products">Continue Shopping</Link>
+            <Link to="/">Continue Shopping</Link>
           </button>
         </div>
         <div className="flex justify-between p-3 flex-col sm:flex-row items-center">

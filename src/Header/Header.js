@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Padlock from "./../assets/materials/Padlock.svg";
-import Vector from "./../assets/materials/Vector.jpg";
-import s from "./../assets/materials/s.png";
 import iconMenu from "./../assets/materials/iconMenu.svg";
-import searchBottom from "./../assets/materials/searchBottom.svg";
 import { get_orders } from "../Store/Actions/OrderAction";
 import { Link, Navigate, useNavigate} from "react-router-dom";
 import { product_search_action } from "../Store/Actions/ProductAction";
-
-
+import { IoSearch } from "react-icons/io5";
+import { GiHamburgerMenu } from "react-icons/gi";
 import { useDispatch, useSelector } from "react-redux";
-
+import VariantsExample from "./VariantButton";
+import { MdOutlineShoppingCart } from "react-icons/md"
 
 const Header = (props) => {
   const [searchValue, setSearchValue] = useState('')
@@ -41,58 +39,56 @@ const Header = (props) => {
 
   return (
     <div className=" px-7 flex justify-between  border border-border_color border-x-0 h-16 items-center">
-     <Link to='/'> <div className="font-lato text-3xl text-left text flex items-center sm:text-4xl md:text-5xl">
+     <Link to='/'> <div className=" font-lato text-2xl text-left text flex items-center sm:text-4xl md:text-3xl">
         Misfit
       </div>
       </Link>
-      <ul className="hidden  md:flex gap-10 justify-between items-center font-lato_light font-normal">
-        <li className="">Descover Bespoke</li>
-        <li className="">Men</li>
-        <li className="">Women</li>
-        <li className="">Kids</li>
-        <li className="">Collection</li>
+      <ul className="hidden  md:flex justify-between gap-7 items-center font-lato_light font-normal text-sm ">
+        <li className="cursor-pointer hover:underline">Descover Bespoke</li>
+        <li className="cursor-pointer hover:underline">Men</li>
+        <li className="cursor-pointer hover:underline">Women</li>
+        <li className="cursor-pointer hover:underline">Kids</li>
+        {/* <li className="">Collection</li> */}
       </ul>
-      <div className="flex   justify-between items-center gap-7 ">
-        <div className="relative w-full hidden sm:block">
+      <div className="relative  hidden sm:flex  ">
           <input
             placeholder="Search Product"
             type="text"
-            className="font-lato_italic font-extralight border border-border_color border-x-0 border-t-0 md:w-56"
+            className="font-lato_italic font-extralight border border-border_color border-x-0 border-t-0 "
             onChange={(e) => onChangeHandler(e)}
             value = {searchValue}
           />
-          <img
-            src={s}
-            width="30"
-            height="30"
-            className="absolute right-0 top-0 min-h-fit"
-            onClick={searchHandler}
-          />
+          <IoSearch onClick={searchHandler} fontSize={20} className="relative -left-7"/>
+         
           {/* <img src={searchBottom} /> */}
         </div>
+      <div className="flex   justify-between items-center gap-4  ">
         
+        
+       
+        <div className="flex justify-between gap-4">
         <div
-          className="hidden md:block md:relative w-10 h-10 "
+          className="hidden md:block md:relative "
           onClick={() => props.changeModalmode()}
         >
           {" "}
           <Link to='/cart'>
-          <div className="absolute bg-red-700 w-6 h-fit rounded-3xl right-0 top-0 text-white">
+          <div className="absolute left-3 -top-1 bg-red-700 flex justify-center items-center w-4 text-xs h-fit rounded-3xl right-0  text-white">
             {cartNumber > 0 ? cartNumber : 0}
           </div>
           </Link>
-          <div className="flex items-center h-full cursor-pointer"> <Link to="/cart"><img src={Padlock} width="35" height="35" /></Link></div>
+          <div className="flex items-center w-7 h-full cursor-pointer"> <Link to="/cart"><MdOutlineShoppingCart fontSize={20}/></Link></div>
         </div>
-        <div className="">
-        {!whether_authenticated && <button className="p-2 sm:p-3 border border-discover hover:bg-discover hover:text-yellow-50 text-xs sm:text-sm md:text-base "><Link to={"/auth"}>Signup/Login</Link></button>}
+        {!whether_authenticated && <button className="p-2  border border-discover hover:bg-discover hover:text-yellow-50 text-xs  w-full"><Link to={"/auth"}>Signup/Login</Link></button>}
         {whether_authenticated && <button className="p-3 border border-discover hover:bg-discover hover:text-yellow-50"><Link to={"/Logout"}>LOGOUT</Link></button>}
         </div>
+        {/* <VariantsExample /> */}
         <div
           onClick={() => props.ChangeSideBarMode()}
           className="relative md:hidden  h-full w-6 sm:w-10 flex items-center"
         >
-          <div className="absolute bottom-3 left-3 md:text-lg bg-red-500 rounded-full  px-2 text-sm text-white font-bold">{cartNumber>0?cartNumber:0}</div>
-          <img src={iconMenu} className="w-full " />
+          <div className="absolute bottom-3 left-3 md:text-sm bg-red-500 rounded-full  px-2 text-sm text-white font-bold">{cartNumber>0?cartNumber:0}</div>
+          <GiHamburgerMenu fontSize={25} className="cursor-pointer"/> 
         </div>
       </div>
     </div>

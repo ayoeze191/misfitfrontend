@@ -12,7 +12,7 @@ const Product = (props) => {
   const dispatch = useDispatch()
   const ToProductDetail = () => {
   
-    const tos = `/products/${props.id}`;
+    const tos = `/${props.id}`;
     navigate(tos);
   };
 
