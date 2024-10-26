@@ -31,8 +31,8 @@ const Product = (props) => {
   return (
     <div className=" shadow-lg shadow-stone-500 p-3" >
       <div className="flex flex-col gap-3">
-        <div>
-        <img src={props.productimage} className="h-full w-full " />{" "}
+        <div className="hover:scale-90 transition-all h-[300px]">
+        <img src={"http://127.0.0.1:8000/" + props.productimage} className="h-full w-full " />{" "}
         </div>
         <h5 className="text-capitalize text-left font-poppins_Regular font-semibold">{props.name}</h5>
         </div>

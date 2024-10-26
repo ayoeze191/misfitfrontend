@@ -9,6 +9,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { useDispatch, useSelector } from "react-redux";
 import VariantsExample from "./VariantButton";
 import { MdOutlineShoppingCart } from "react-icons/md"
+import { QUERYING } from "../Store/ActionTypes/ActionTypes";
 
 const Header = (props) => {
   const [searchValue, setSearchValue] = useState('')
@@ -44,10 +45,10 @@ const Header = (props) => {
       </div>
       </Link>
       <ul className="hidden  md:flex justify-between gap-7 items-center font-lato_light font-normal text-sm ">
-        <li className="cursor-pointer hover:underline">Descover Bespoke</li>
-        <li className="cursor-pointer hover:underline">Men</li>
-        <li className="cursor-pointer hover:underline">Women</li>
-        <li className="cursor-pointer hover:underline">Kids</li>
+        <li className="cursor-pointer hover:underline" >Descover Bespoke</li>
+        <li className="cursor-pointer hover:underline" onClick={() => dispatch({type: "QUERYING", payload: "Men"})}>Men</li>
+        <li className="cursor-pointer hover:underline" onClick={() => dispatch({type: "QUERYING", payload: "Women"})}>Women</li>
+        <li className="cursor-pointer hover:underline" onClick={() => dispatch({type: "QUERYING", payload: "Kids"})}>Kids</li>
         {/* <li className="">Collection</li> */}
       </ul>
       <div className="relative  hidden sm:flex  ">

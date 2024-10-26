@@ -8,9 +8,10 @@ import axios from "./../../axios"
 import withErrorHandler from "../../withErrorHandler";
 const Products = (props) => {
   const isLoading = useSelector((state) => state.ProductReducer.productLoading)
+  const query = useSelector((state) => state.ProductReducer.query)
   useEffect(() => { 
     props.get_all_products();
-  }, []);
+  }, [query]);
 
   let body = null 
   if(isLoading){
