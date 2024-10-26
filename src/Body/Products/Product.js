@@ -26,13 +26,13 @@ const Product = (props) => {
       dispatch(visitor_add_to_cart(id, price, name, d_image, category))
     }
   };
-  // props.name props.stock_price
+  const localBasedUrl = process.env.NODE_ENV === "developement node" ?"http://127.0.0.1:8000/":""
 
   return (
     <div className=" shadow-lg shadow-stone-500 p-3" >
       <div className="flex flex-col gap-3">
         <div className="hover:scale-90 transition-all h-[300px]">
-        <img src={"http://127.0.0.1:8000/" + props.productimage} className="h-full w-full " />{" "}
+        <img src={localBasedUrl + props.productimage} className="h-full w-full " />{" "}
         </div>
         <h5 className="text-capitalize text-left font-poppins_Regular font-semibold">{props.name}</h5>
         </div>
