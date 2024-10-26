@@ -1,7 +1,7 @@
 // import axios from "axios";
 import { instance } from "../../utilities";
 import { GET_ALL_PRODUCTS, GET_PRODUCT_DETAILS, PRODUCTS_LOADING } from "../ActionTypes/ActionTypes";
-import axios from "./../../axios"
+
 export const GET_PRODUCTS = (products) => {
     return {
         "type": GET_ALL_PRODUCTS,
