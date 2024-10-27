@@ -60,8 +60,7 @@ const Header = (props) => {
             value = {searchValue}
           />
           <IoSearch onClick={searchHandler} fontSize={20} className="relative -left-7"/>
-         
-          {/* <img src={searchBottom} /> */}
+
         </div>
       <div className="flex   justify-between items-center gap-4  ">
         

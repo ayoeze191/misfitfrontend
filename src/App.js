@@ -39,7 +39,7 @@ function App() {
 
 
   const changeSideBarMode = (e) => {
-    setShowOverLay(!showOverlay)
+    // setShowOverLay(!showOverlay)
     setShowSideBar(!showSideBar)
   }
   
@@ -68,7 +68,7 @@ function App() {
         
         
         <Router>
-        {showSideBar && <SideBar /> }
+         <SideBar showSideBar={showSideBar} handleRemoveSidebar={changeSideBarMode}/>
         {showOverlay && <OverLay clearscreen = {clearScreen}/> }
         <Header ChangeSideBarMode={changeSideBarMode} />
         {/* <Messages /> */}

@@ -9,8 +9,6 @@ export const GET_PRODUCTS = (products) => {
      } 
 }
 
-
-
 export const get_all_products = () => (dispatch, getState) => {
     let url = '/products'
     if(getState().ProductReducer.query !== ''){
